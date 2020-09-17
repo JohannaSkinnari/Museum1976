@@ -9,6 +9,9 @@ namespace museumet
             int room = 1;
             int choise = 0;
 
+            bool IsBurning = false;
+            int count = 0;
+
             Console.WriteLine("Vad heter du?");
             string name = Console.ReadLine();
             
@@ -33,11 +36,45 @@ namespace museumet
             // meny
             while (true)
             {
+                if (IsBurning == true)
+                {
+                    count ++;
+
+                    Console.WriteLine(" _____________ ");
+                    Console.WriteLine(" | 7 | 1 | 2 | ");
+                    Console.WriteLine(" |_6_| 4 |_3_| ");
+                    Console.WriteLine("     |_5_|     \n");
+                }
+                else if (IsBurning == false)
+                {
+                    Random random = new Random();
+                    int chanse = random.Next(1, 11);
+                    if (chanse == 2)
+                    {
+                        IsBurning = true;
+                        Console.WriteLine("Det BRINNER! Du måste ta dig ut så snabbt du kan!!");
+                        Console.WriteLine("Du vill ha så få poäng som möjligt!");
+                        Console.WriteLine(" _____________ ");
+                        Console.WriteLine(" | 7 | 1 | 2 | ");
+                        Console.WriteLine(" |_6_| 4 |_3_| ");
+                        Console.WriteLine("     |_5_|     \n");
+                    }
+
+                }
+
                 if (room == 1)
                 {
-                    Console.WriteLine("\nDu är i rum 1 även kallad hallen!");
-                    Console.WriteLine("Finns tyvärr inte så mycket att se här.");
-                    Console.WriteLine("Men det finns fina saker i de andra rummen!\n");
+                    if (IsBurning == false)
+                    {
+                        Console.WriteLine("\nDu är i rum 1 även kallad hallen!");
+                        Console.WriteLine("Finns tyvärr inte så mycket att se här.");
+                        Console.WriteLine("Men det finns fina saker i de andra rummen!\n");
+                    }
+                    else if (IsBurning == true)
+                    {
+                        Console.WriteLine("\nDu har kommit till hallen! Du klarade dig!");
+                        Console.WriteLine($"Dina poäng blev {count}!");
+                    }
                     
                     // om man vill lämna 
                     bool IsLeaving = true;
