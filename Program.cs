@@ -9,7 +9,7 @@ namespace museumet
             int room = 1;
             int choise = 0;
 
-            bool IsBurning = false;
+            bool isBurning = false;
             int count = 0;
 
             Console.WriteLine("Vad heter du?");
@@ -36,7 +36,7 @@ namespace museumet
             // meny
             while (true)
             {
-                if (IsBurning == true)
+                if (isBurning == true)
                 {
                     count ++;
 
@@ -45,13 +45,13 @@ namespace museumet
                     Console.WriteLine(" |_6_| 4 |_3_| ");
                     Console.WriteLine("     |_5_|     \n");
                 }
-                else if (IsBurning == false)
+                else if (isBurning == false)
                 {
                     Random random = new Random();
                     int chanse = random.Next(1, 11);
                     if (chanse == 2)
                     {
-                        IsBurning = true;
+                        isBurning = true;
                         Console.WriteLine("Det BRINNER! Du måste ta dig ut så snabbt du kan!!");
                         Console.WriteLine("Du vill ha så få poäng som möjligt!");
                         Console.WriteLine(" _____________ ");
@@ -64,28 +64,28 @@ namespace museumet
 
                 if (room == 1)
                 {
-                    if (IsBurning == false)
+                    if (isBurning == false)
                     {
                         Console.WriteLine("\nDu är i rum 1 även kallad hallen!");
                         Console.WriteLine("Finns tyvärr inte så mycket att se här.");
                         Console.WriteLine("Men det finns fina saker i de andra rummen!\n");
                     }
-                    else if (IsBurning == true)
+                    else if (isBurning == true)
                     {
                         Console.WriteLine("\nDu har kommit till hallen! Du klarade dig!");
                         Console.WriteLine($"Dina poäng blev {count}!");
                     }
                     
                     // om man vill lämna 
-                    bool IsLeaving = true;
-                    while(IsLeaving)
+                    bool isLeaving = true;
+                    while(isLeaving)
                     {
                         Console.WriteLine("Vill du lämna museumet?? j/n");
                         string choise2 = Console.ReadLine().ToLower();
 
                         if (choise2 == "n")
                         {
-                            IsLeaving = false;
+                            isLeaving = false;
 
                         }
                         else if (choise2 == "j")
